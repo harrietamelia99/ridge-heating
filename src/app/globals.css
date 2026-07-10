@@ -141,20 +141,21 @@ html {
   content: "";
   pointer-events: none;
   position: absolute;
-  inset: 0;
+  /* Overscan slightly so mobile subpixel gaps / clip edges don't show seams */
+  inset: -1px;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.32;
   background-image: url("/hex-pattern-dark.png");
-  background-size: 280px 280px;
+  background-size: 200px 200px;
   background-repeat: repeat;
-  background-position: center top;
-  -webkit-mask-image: radial-gradient(
-    ellipse 85% 75% at 50% 40%,
-    #000 0%,
-    #000 35%,
-    transparent 78%
-  );
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, #000 0%, #000 35%, transparent 78%);
+  background-position: left top;
+}
+
+@media (min-width: 768px) {
+  .hex-pattern::after {
+    background-size: 280px 280px;
+    opacity: 0.35;
+  }
 }
 
 .hex-pattern-strong::after {
@@ -176,9 +177,17 @@ html {
 
 .section-light.hex-pattern::after,
 .section-light .hex-pattern::after {
-  opacity: 0.4;
+  opacity: 0.38;
   background-image: url("/hex-pattern-light.png");
-  background-size: 280px 280px;
+  background-size: 200px 200px;
+}
+
+@media (min-width: 768px) {
+  .section-light.hex-pattern::after,
+  .section-light .hex-pattern::after {
+    background-size: 280px 280px;
+    opacity: 0.4;
+  }
 }
 
 .text-ink-gradient {
