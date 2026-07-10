@@ -25,7 +25,7 @@ export function Hero() {
           alt={heroImage.alt}
           fill
           priority
-          className="object-cover object-[78%_38%]"
+          className="object-cover object-[78%_38%] opacity-[0.72]"
           sizes="100vw"
         />
         {/* Soften under the nav */}
@@ -35,7 +35,7 @@ export function Hero() {
         />
         {/* Fade into copy below */}
         <div
-          className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/75 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black via-black/80 to-transparent sm:h-56"
           aria-hidden="true"
         />
       </div>
@@ -48,7 +48,7 @@ export function Hero() {
             alt={heroImage.alt}
             fill
             priority
-            className="object-cover object-[88%_18%]"
+            className="object-cover object-[88%_18%] opacity-[0.78]"
             sizes="64vw"
           />
           <div className="hero-media-fade absolute inset-0" aria-hidden="true" />
@@ -60,9 +60,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-4 pb-12 pt-[min(58svh,480px)] sm:px-5 sm:pb-16 sm:pt-[min(56svh,500px)] md:px-8 md:pb-20 lg:min-h-[100svh] lg:justify-center lg:pt-28 lg:pb-28">
-        <div className="animate-fade-up flex w-full max-w-xl flex-col items-start text-left lg:max-w-[34rem] xl:max-w-xl">
-          <div className="inline-flex max-w-full items-center gap-2 py-1">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-4 pb-12 pt-[min(50svh,420px)] sm:px-5 sm:pb-16 sm:pt-[min(52svh,460px)] md:px-8 md:pb-20 lg:min-h-[100svh] lg:items-stretch lg:justify-center lg:pt-28 lg:pb-28">
+        <div className="animate-fade-up flex w-full max-w-xl flex-col items-center text-center lg:max-w-[34rem] lg:items-start lg:text-left xl:max-w-xl">
+          <div className="inline-flex max-w-full items-center justify-center gap-2 py-1 lg:justify-start">
             <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
             <p className="font-display text-[10px] uppercase leading-snug tracking-[0.14em] text-ridge-white/75 sm:text-[11px] sm:tracking-[0.24em] md:text-xs">
               <span className="sm:hidden">Gas Safe · Bristol &amp; Southwest</span>
@@ -70,7 +70,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="animate-fade-up delay-1 mt-5 flex flex-col items-start gap-2.5 sm:mt-8 sm:gap-4 md:mt-10">
+          <div className="animate-fade-up delay-1 mt-5 flex flex-col items-center gap-2.5 sm:mt-8 sm:gap-4 md:mt-10 lg:items-start">
             <MountainLogo className="h-12 w-[5.5rem] sm:h-14 sm:w-24 md:h-16 md:w-28" priority />
             <h1 className="text-gradient font-display text-[1.65rem] font-bold uppercase leading-[1.05] tracking-[0.1em] sm:text-3xl sm:tracking-[0.16em] md:text-5xl md:tracking-[0.2em]">
               Ridge Heating
@@ -82,11 +82,11 @@ export function Hero() {
           </p>
 
           <p className="animate-fade-up delay-3 mt-4 max-w-md text-[15px] leading-relaxed text-ridge-white/65 sm:mt-6 sm:text-base md:text-lg">
-            Independent gas engineer covering anywhere within 1–2 hours of Bristol — boilers,
+            Independent gas engineer covering anywhere within 1-2 hours of Bristol: boilers,
             heating systems, CP12s and smart controls. Emergency callouts available.
           </p>
 
-          <div className="animate-fade-up delay-4 mt-7 flex w-full flex-col gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-x-8">
+          <div className="animate-fade-up delay-4 mt-7 flex w-full flex-col items-center gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:justify-center sm:gap-x-8 lg:justify-start">
             <a
               href="#contact"
               className="btn-primary min-h-12 w-full px-8 py-3.5 text-center font-display text-[12px] font-semibold uppercase tracking-[0.16em] sm:w-auto sm:px-10 sm:tracking-[0.18em]"

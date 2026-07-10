@@ -237,6 +237,9 @@ export function Contact() {
               ))}
             </div>
           </form>
+          <p className="mt-4 text-center text-sm italic text-ridge-ink-muted sm:text-left">
+            Sam this needs to be connected via Resend to get this working, so it wont work quite yet!
+          </p>
         </Reveal>
       </div>
     </section>

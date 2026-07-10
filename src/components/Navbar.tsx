@@ -58,13 +58,6 @@ export function Navbar() {
   return (
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-2.5 pt-[max(0.5rem,env(safe-area-inset-top))] sm:px-3 md:px-5 md:pt-4">
-        {/* Mobile: subtle top scrim so nav stays readable over the hero photo */}
-        <div
-          className={`pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/70 via-black/35 to-transparent transition-opacity duration-500 lg:hidden ${
-            scrolled || open ? "opacity-90" : "opacity-100"
-          }`}
-          aria-hidden="true"
-        />
         <div
           className={`pointer-events-auto relative mx-auto max-w-7xl transition-[filter] duration-500 ${
             scrolled || open
@@ -76,7 +69,7 @@ export function Navbar() {
             className={`hex flex items-center justify-between gap-2 py-2 pl-7 pr-4 transition-all duration-500 sm:gap-3 sm:px-6 sm:py-2.5 md:px-7 ${
               scrolled || open
                 ? "bg-black/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl"
-                : "bg-gradient-to-b from-black/45 to-black/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md lg:bg-white/[0.07] lg:from-transparent lg:to-transparent lg:shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:backdrop-blur-xl"
+                : "bg-white/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl"
             }`}
           >
           <Link

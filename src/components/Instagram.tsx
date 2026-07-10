@@ -85,6 +85,10 @@ export function Instagram() {
             </Reveal>
           ))}
         </ul>
+
+        <p className="mt-6 text-center text-sm italic text-ridge-white/45 sm:mt-8">
+          Sam, i will connect your instagram feed to here, so ignore this for now!
+        </p>
       </div>
     </section>
   );

@@ -300,6 +300,38 @@ html {
   line-height: 0;
 }
 
+/* Hex fill on the destination side of diagonal joins */
+.section-divider-hex {
+  pointer-events: none;
+  background-repeat: repeat;
+  background-position: left bottom;
+  background-size: 200px 200px;
+}
+
+.section-divider-hex-light {
+  opacity: 0.38;
+  background-image: url("/hex-pattern-light.png");
+}
+
+.section-divider-hex-dark {
+  opacity: 0.32;
+  background-image: url("/hex-pattern-dark.png");
+}
+
+@media (min-width: 768px) {
+  .section-divider-hex {
+    background-size: 280px 280px;
+  }
+
+  .section-divider-hex-light {
+    opacity: 0.4;
+  }
+
+  .section-divider-hex-dark {
+    opacity: 0.35;
+  }
+}
+
 /* --- Atmosphere --- */
 
 .grain {
@@ -541,52 +573,53 @@ html {
   background-size: 100% 1px;
 }
 
-/* Scroll reveal */
+/* Scroll reveal — transform only; never hide content with opacity */
 .reveal {
-  opacity: 0;
   transition:
     opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
 }
 
 .reveal-up {
-  transform: translateY(20px);
+  transform: translateY(16px);
 }
 
 .reveal-left {
-  transform: translateX(-14px);
+  transform: translateX(-10px);
 }
 
 .reveal-right {
-  transform: translateX(14px);
+  transform: translateX(10px);
 }
 
 .reveal-scale {
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 .reveal.is-visible {
-  opacity: 1;
   transform: none;
 }
 
 @media (min-width: 768px) {
   .reveal-up {
-    transform: translateY(36px);
+    transform: translateY(28px);
   }
 
   .reveal-left {
-    transform: translateX(-28px);
+    transform: translateX(-20px);
   }
 
   .reveal-right {
-    transform: translateX(28px);
+    transform: translateX(20px);
   }
 
   .reveal-scale {
-    transform: scale(0.94);
+    transform: scale(0.97);
+  }
+
+  .reveal.is-visible {
+    transform: none;
   }
 }
 

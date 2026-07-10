@@ -26,17 +26,23 @@ export function Reveal({
   as = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  // Animation is off until mount — content stays visible for SSR / no-JS
+  const [armed, setArmed] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setVisible(true);
-      return;
-    }
+    if (reduced) return;
+
+    const vh = window.innerHeight || 0;
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < vh * 0.92 && rect.bottom > vh * 0.02;
+
+    setArmed(true);
+    setVisible(inView);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -47,13 +53,12 @@ export function Reveal({
           setVisible(false);
         }
       },
-      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
     );
 
     observer.observe(el);
 
-    // Failsafe: never leave content invisible if the observer misses
-    const failsafe = window.setTimeout(() => setVisible(true), 2500);
+    const failsafe = window.setTimeout(() => setVisible(true), 600);
 
     return () => {
       observer.disconnect();
@@ -65,7 +70,14 @@ export function Reveal({
     ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties)
     : undefined;
 
-  const classes = `reveal reveal-${variant} ${visible ? "is-visible" : ""} ${className}`;
+  const classes = [
+    armed ? `reveal reveal-${variant}` : "",
+    armed && visible ? "is-visible" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const setRef = (node: HTMLElement | null) => {
     ref.current = node;
   };
