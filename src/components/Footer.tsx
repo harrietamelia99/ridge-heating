@@ -58,12 +58,12 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {quickLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="text-sm text-ridge-white/60 transition hover:text-ridge-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -76,12 +76,12 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {serviceLinks.map((label) => (
               <li key={label}>
-                <a
+                <Link
                   href="/#services"
                   className="text-sm text-ridge-white/60 transition hover:text-ridge-white"
                 >
                   {label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

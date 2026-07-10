@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { BrandMark } from "./BrandMark";
 
 const links = [
@@ -71,14 +72,14 @@ export function Navbar() {
                 : "bg-white/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl"
             }`}
           >
-          <a
+          <Link
             href="/"
             className="relative z-50 min-w-0 shrink px-0.5 py-1 transition hover:opacity-80"
             aria-label="Ridge Heating home"
             onClick={() => setOpen(false)}
           >
             <BrandMark size="sm" />
-          </a>
+          </Link>
 
           <nav
             className="hidden items-center gap-1 lg:flex"
@@ -87,7 +88,7 @@ export function Navbar() {
             {links.map((link) => {
               const isActive = active === link.href;
               return (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className={`px-3.5 py-2 font-display text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
@@ -97,7 +98,7 @@ export function Navbar() {
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -109,12 +110,12 @@ export function Navbar() {
             >
               0117 251 0726
             </a>
-            <a
+            <Link
               href="/#contact"
               className="btn-primary px-6 py-2.5 font-display text-[11px] font-semibold uppercase tracking-[0.16em]"
             >
               Enquire Now
-            </a>
+            </Link>
           </div>
 
           <button
@@ -167,7 +168,7 @@ export function Navbar() {
         >
           <div className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto overscroll-contain py-2">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
@@ -176,7 +177,7 @@ export function Navbar() {
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -187,13 +188,13 @@ export function Navbar() {
             >
               0117 251 0726
             </a>
-            <a
+            <Link
               href="/#contact"
               onClick={() => setOpen(false)}
               className="btn-primary min-h-12 px-5 py-3.5 text-center font-display text-sm font-semibold uppercase tracking-[0.14em]"
             >
               Enquire Now
-            </a>
+            </Link>
           </div>
         </nav>
       </div>
