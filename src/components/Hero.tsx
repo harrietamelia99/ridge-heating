@@ -18,6 +18,28 @@ export function Hero() {
         aria-hidden="true"
       />
 
+      {/* Mobile: tall full-bleed photo from the top edge (sits behind the nav) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[min(68svh,560px)] overflow-hidden lg:hidden">
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          priority
+          className="object-cover object-[78%_38%]"
+          sizes="100vw"
+        />
+        {/* Soften under the nav */}
+        <div
+          className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-black/65 via-black/30 to-transparent"
+          aria-hidden="true"
+        />
+        {/* Fade into copy below */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/75 to-transparent"
+          aria-hidden="true"
+        />
+      </div>
+
       {/* Desktop: bleed off the right edge, stay inside the hero */}
       <div className="absolute inset-y-0 right-0 z-0 hidden w-[min(64vw,960px)] overflow-hidden lg:block">
         <div className="hero-media relative h-full w-full">
@@ -38,21 +60,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-4 pb-12 pt-[5.5rem] sm:px-5 sm:pb-16 sm:pt-28 md:px-8 md:pb-20 md:pt-32 lg:min-h-[100svh] lg:justify-center lg:py-28">
-        {/* Mobile: full-bleed portrait band */}
-        <div className="animate-fade-up relative -mx-4 mb-7 aspect-[4/3] max-h-[280px] overflow-hidden sm:-mx-5 sm:mb-10 sm:aspect-[16/11] sm:max-h-[380px] md:-mx-8 md:max-h-[420px] lg:hidden">
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            fill
-            priority
-            className="object-cover object-[85%_15%]"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-4 pb-12 pt-[min(58svh,480px)] sm:px-5 sm:pb-16 sm:pt-[min(56svh,500px)] md:px-8 md:pb-20 lg:min-h-[100svh] lg:justify-center lg:pt-28 lg:pb-28">
         <div className="animate-fade-up flex w-full max-w-xl flex-col items-start text-left lg:max-w-[34rem] xl:max-w-xl">
           <div className="inline-flex max-w-full items-center gap-2 py-1">
             <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
