@@ -73,7 +73,7 @@ export function Navbar() {
           }`}
         >
           <div
-            className={`hex flex items-center justify-between gap-2 px-4 py-2 transition-all duration-500 sm:px-6 md:gap-3 md:px-7 md:py-2.5 ${
+            className={`hex flex items-center justify-between gap-2 py-2 pl-7 pr-4 transition-all duration-500 sm:gap-3 sm:px-6 sm:py-2.5 md:px-7 ${
               scrolled || open
                 ? "bg-black/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl"
                 : "bg-gradient-to-b from-black/45 to-black/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md lg:bg-white/[0.07] lg:from-transparent lg:to-transparent lg:shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:backdrop-blur-xl"
@@ -81,7 +81,7 @@ export function Navbar() {
           >
           <Link
             href="/"
-            className="relative z-50 min-w-0 shrink px-0.5 py-1 transition hover:opacity-80"
+            className="relative z-50 min-w-0 shrink py-1 pl-1 transition hover:opacity-80 sm:pl-0.5"
             aria-label="Ridge Heating home"
             onClick={() => setOpen(false)}
           >
