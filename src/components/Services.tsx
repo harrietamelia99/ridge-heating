@@ -20,8 +20,8 @@ const services = [
     title: "Heating system installation",
     description:
       "Full central heating installs and upgrades, boilers, cylinders and systems engineered for comfort and longevity.",
-    image: "/stock-heating-system.jpg",
-    imageAlt: "Central heating system installation",
+    image: "/stock-wrench.jpg",
+    imageAlt: "Engineer fitting a hot water cylinder",
   },
   {
     title: "Smart heating control installation",
@@ -69,7 +69,7 @@ export function Services() {
                     src={service.image}
                     alt={service.imageAlt}
                     fill
-                    className="object-cover"
+                    className="object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

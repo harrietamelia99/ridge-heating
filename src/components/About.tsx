@@ -47,9 +47,6 @@ export function About() {
               upgrade. We leave your home as clean as we found it.
             </p>
           </div>
-          <p className="mt-6 border-l-2 border-black/25 pl-4 font-display text-sm italic leading-relaxed text-black/70 sm:mt-8 sm:pl-5 md:text-base">
-            plumber / gas engineer · bristol / southwest
-          </p>
           <div className="mt-8 flex flex-wrap items-center gap-2 sm:mt-10 sm:gap-3">
             {["Owner-operated", "Emergency callouts", "1-2 hrs from Bristol"].map((label) => (
               <span

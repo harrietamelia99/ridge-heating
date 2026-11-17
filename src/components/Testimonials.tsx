@@ -105,6 +105,28 @@ export function Testimonials() {
               </article>
             </Reveal>
           ))}
+          <Reveal as="li" delay={reviews.length * 70} className="h-full">
+            <div className="flex h-full flex-col justify-between bg-ridge-black p-5 text-ridge-white sm:p-6 md:p-7">
+              <div>
+                <p className="font-display text-[10px] uppercase tracking-[0.22em] text-ridge-muted">
+                  Your job next?
+                </p>
+                <h3 className="mt-5 font-display text-lg font-semibold uppercase tracking-[0.06em] sm:text-xl">
+                  Get a free quote
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ridge-white/60 sm:text-[15px]">
+                  Join happy customers across Bristol and the Southwest. Tell us about the job and
+                  we&apos;ll come back with clear next steps.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="btn-primary mt-8 inline-flex min-h-11 w-fit items-center justify-center px-8 py-3 font-display text-[11px] font-semibold uppercase tracking-[0.18em]"
+              >
+                Enquire Now
+              </a>
+            </div>
+          </Reveal>
         </ul>
 
         <Reveal delay={200}>

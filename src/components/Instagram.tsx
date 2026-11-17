@@ -7,12 +7,12 @@ const posts = [
     image: "/stock-engineer-work.jpg",
   },
   {
-    label: "Smart controls",
-    image: "/stock-thermostat.jpg",
+    label: "Pipework",
+    image: "/stock-pipework.jpg",
   },
   {
-    label: "Installs",
-    image: "/stock-heating-system.jpg",
+    label: "Repairs",
+    image: "/stock-cabinet.jpg",
   },
 ];
 
