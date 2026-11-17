@@ -15,6 +15,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ridgeheating.co.uk"),
   title: "Ridge Heating | Gas Engineer Bristol",
   description:
     "Independent gas engineer covering the Southwest within 1-2 hours of Bristol. Emergency callouts available. Boilers, CP12s, heating systems, smart controls and pipework.",
@@ -25,7 +26,31 @@ export const metadata: Metadata = {
     url: "https://www.ridgeheating.co.uk",
     siteName: "Ridge Heating",
     type: "website",
+    locale: "en_GB",
   },
+};
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  name: "Ridge Heating",
+  url: "https://www.ridgeheating.co.uk",
+  logo: "https://www.ridgeheating.co.uk/icon.png",
+  image: "https://www.ridgeheating.co.uk/opengraph-image.jpg",
+  telephone: "+441172510726",
+  email: "response@ridgeheating.co.uk",
+  description:
+    "Independent Gas Safe registered engineer based in Bristol. Boilers, CP12 landlord certificates, heating systems, smart controls and pipework. Emergency callouts available.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bristol",
+    addressCountry: "GB",
+  },
+  areaServed: [
+    { "@type": "City", name: "Bristol" },
+    { "@type": "AdministrativeArea", name: "South West England" },
+  ],
+  sameAs: ["https://www.instagram.com/ridge.heating/"],
 };
 
 export const viewport = {
@@ -43,6 +68,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${manrope.variable}`}>
       <body className="bg-ridge-black text-ridge-white antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+        />
         {children}
       </body>
     </html>

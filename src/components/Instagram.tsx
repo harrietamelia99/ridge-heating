@@ -30,7 +30,7 @@ export function Instagram() {
   return (
     <section
       id="instagram"
-      className="hex-pattern relative overflow-hidden py-14 sm:py-20 md:py-28 lg:py-32"
+      className="hex-pattern relative overflow-hidden pb-4 pt-14 sm:pb-6 sm:pt-20 md:pb-8 md:pt-28 lg:pt-32"
     >
       <div
         className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(255,255,255,0.05),transparent_50%),linear-gradient(180deg,#000,#080808_50%,#000)]"

@@ -55,7 +55,7 @@ export function Footer() {
           <p className="font-display text-[10px] uppercase tracking-[0.22em] text-ridge-muted">
             Quick links
           </p>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-3">
             {quickLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -120,7 +120,7 @@ export function Footer() {
           href="https://www.collectivstudio.uk/"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary inline-flex min-h-11 w-full items-center justify-center px-6 py-3 text-center font-display text-[11px] font-semibold uppercase tracking-[0.16em] sm:w-fit"
+          className="w-fit font-display text-[10px] uppercase tracking-[0.2em] text-ridge-muted transition hover:text-ridge-white"
         >
           Website by Collectiv Studio
         </a>
