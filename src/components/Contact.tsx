@@ -3,6 +3,11 @@
 import { FormEvent, useState } from "react";
 import { Reveal } from "./Reveal";
 
+// Web3Forms public access key (safe to be in the browser). Submissions are emailed
+// to the recipient set in the Web3Forms dashboard (form: "Ridge Heating").
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "a73a6641-2dea-4848-88de-0a4e13422be6";
+
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
 
@@ -24,20 +29,37 @@ export function Contact() {
     const message = String(data.get("message") || "");
     const company = String(data.get("company") || "");
 
-    setStatus("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, message, company }),
-      });
-      if (res.ok) {
-        form.reset();
-        setStatus("sent");
-        return;
+    if (company) {
+      setStatus("sent");
+      return;
+    }
+
+    if (WEB3FORMS_ACCESS_KEY) {
+      setStatus("sending");
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `Website enquiry from ${name}`,
+            from_name: "Ridge Heating Website",
+            replyto: email,
+            name,
+            phone,
+            email,
+            message,
+          }),
+        });
+        const result = await res.json().catch(() => null);
+        if (res.ok && result?.success) {
+          form.reset();
+          setStatus("sent");
+          return;
+        }
+      } catch {
+        // fall through to email fallback
       }
-    } catch {
-      // fall through to email fallback
     }
     openMailto(name, phone, email, message);
     setStatus("fallback");
