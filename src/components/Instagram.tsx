@@ -1,17 +1,18 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const posts = [
   {
     label: "On the job",
-    caption: "Photo placeholder",
+    image: "/stock-engineer-work.jpg",
   },
   {
     label: "Smart controls",
-    caption: "Photo placeholder",
+    image: "/stock-thermostat.jpg",
   },
   {
     label: "Installs",
-    caption: "Photo placeholder",
+    image: "/stock-heating-system.jpg",
   },
 ];
 
@@ -67,28 +68,26 @@ export function Instagram() {
                 href="https://www.instagram.com/ridge.heating/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex aspect-square flex-col items-center justify-center gap-2 overflow-hidden border border-dashed border-white/20 bg-white/[0.03] transition duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/[0.06] sm:gap-4"
+                className="group relative block aspect-square overflow-hidden border border-white/10 transition duration-300 hover:-translate-y-1 hover:border-white/30"
               >
-                <InstagramIcon className="h-6 w-6 text-ridge-white/35 transition group-hover:text-ridge-white/60 sm:h-9 sm:w-9" />
-                <div className="px-1.5 text-center sm:px-3">
-                  <p className="font-display text-[9px] uppercase tracking-[0.14em] text-ridge-white/70 sm:text-[11px] sm:tracking-[0.2em]">
+                <Image
+                  src={post.image}
+                  alt={post.label}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 33vw"
+                  className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" aria-hidden="true" />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 p-2 sm:p-4">
+                  <p className="font-display text-[9px] uppercase tracking-[0.14em] text-ridge-white sm:text-[11px] sm:tracking-[0.2em]">
                     {post.label}
                   </p>
-                  <p className="mt-1 hidden text-[10px] text-ridge-muted sm:mt-2 sm:block sm:text-xs">
-                    {post.caption}
-                  </p>
+                  <InstagramIcon className="h-4 w-4 shrink-0 text-ridge-white/70 sm:h-5 sm:w-5" />
                 </div>
-                <span className="absolute bottom-2 font-display text-[9px] uppercase tracking-[0.18em] text-ridge-white/30 transition group-hover:text-ridge-white/50 sm:bottom-4 sm:text-[10px]">
-                  0{i + 1}
-                </span>
               </a>
             </Reveal>
           ))}
         </ul>
-
-        <p className="mt-6 text-center text-sm italic text-ridge-white/45 sm:mt-8">
-          Sam, i will connect your instagram feed to here, so ignore this for now!
-        </p>
       </div>
     </section>
   );

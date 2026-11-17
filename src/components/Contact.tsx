@@ -4,9 +4,17 @@ import { FormEvent, useState } from "react";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function openMailto(name: string, phone: string, email: string, message: string) {
+    const subject = encodeURIComponent(`Enquiry from ${name} - Ridge Heating`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nJob details:\n${message}`
+    );
+    window.location.href = `mailto:response@ridgeheating.co.uk?subject=${subject}&body=${body}`;
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -14,13 +22,25 @@ export function Contact() {
     const phone = String(data.get("phone") || "");
     const email = String(data.get("email") || "");
     const message = String(data.get("message") || "");
+    const company = String(data.get("company") || "");
 
-    const subject = encodeURIComponent(`Enquiry from ${name} - Ridge Heating`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nJob details:\n${message}`
-    );
-    window.location.href = `mailto:response@ridgeheating.co.uk?subject=${subject}&body=${body}`;
-    setStatus("sent");
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, message, company }),
+      });
+      if (res.ok) {
+        form.reset();
+        setStatus("sent");
+        return;
+      }
+    } catch {
+      // fall through to email fallback
+    }
+    openMailto(name, phone, email, message);
+    setStatus("fallback");
   }
 
   return (
@@ -163,14 +183,28 @@ export function Contact() {
               </label>
             </div>
 
+            <input
+              type="text"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             <button
               type="submit"
+              disabled={status === "sending"}
               className="btn-ink mt-8 min-h-12 w-full py-3.5 font-display text-[12px] font-semibold uppercase tracking-[0.18em] sm:mt-10 sm:w-auto sm:px-12"
             >
-              Enquire Now
+              {status === "sending" ? "Sending..." : "Enquire Now"}
             </button>
 
             {status === "sent" ? (
+              <p className="mt-4 text-sm text-black/60">
+                Thanks, your enquiry has been sent. We&apos;ll be in touch shortly.
+              </p>
+            ) : status === "fallback" ? (
               <p className="mt-4 text-sm text-black/60">
                 Opening your email app. If nothing appears, email us at response@ridgeheating.co.uk.
               </p>
@@ -206,15 +240,6 @@ export function Contact() {
                   ),
                 },
                 {
-                  label: "Facebook",
-                  href: "https://www.facebook.com/",
-                  icon: (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                      <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z" />
-                    </svg>
-                  ),
-                },
-                {
                   label: "WhatsApp",
                   href: "https://wa.me/441172510726",
                   icon: (
@@ -237,9 +262,6 @@ export function Contact() {
               ))}
             </div>
           </form>
-          <p className="mt-4 text-center text-sm italic text-ridge-ink-muted sm:text-left">
-            Sam this needs to be connected via Resend to get this working, so it wont work quite yet!
-          </p>
         </Reveal>
       </div>
     </section>
