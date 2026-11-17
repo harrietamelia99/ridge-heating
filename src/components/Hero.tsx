@@ -44,7 +44,7 @@ export function Hero() {
       {/* Desktop: bleed off the right edge, stay inside the hero */}
       <div className="absolute inset-y-0 right-0 z-0 hidden w-[min(64vw,960px)] overflow-hidden lg:block">
         <div className="hero-media relative h-full w-full">
-          <Parallax strength={90} className="absolute inset-x-0 -bottom-[10%] -top-[4%]">
+          <Parallax strength={90} className="absolute inset-x-0 -bottom-[12%] -top-[12%]">
             <div className="hero-zoom relative h-full w-full">
               <Image
                 src={heroImage.src}
