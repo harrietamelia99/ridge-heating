@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const TO = process.env.CONTACT_TO_EMAIL || "response@ridgeheating.co.uk";
-const FROM = process.env.CONTACT_FROM_EMAIL || "Ridge Heating Website <website@ridgeheating.co.uk>";
+// Resend's shared sender works without any DNS setup, as long as emails go to the
+// Resend account's own address (response@ridgeheating.co.uk). Set CONTACT_FROM_EMAIL
+// to an @ridgeheating.co.uk address later if the domain is ever verified in Resend.
+const FROM = process.env.CONTACT_FROM_EMAIL || "Ridge Heating Website <onboarding@resend.dev>";
 
 function clean(value: unknown, max = 5000) {
   return String(value ?? "").trim().slice(0, max);
