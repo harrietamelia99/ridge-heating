@@ -69,7 +69,7 @@ export function Gallery() {
               as="li"
               delay={i * 90}
               variant="scale"
-              className={`glass group relative h-full overflow-x-clip p-5 sm:p-7 md:min-h-[220px] md:p-8 ${item.span}`}
+              className={`glass spotlight group relative h-full overflow-x-clip p-5 sm:p-7 md:min-h-[220px] md:p-8 ${item.span}`}
             >
               <div
                 className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/[0.04] blur-2xl transition duration-500 group-hover:scale-125 group-hover:bg-white/[0.12]"
@@ -92,7 +92,7 @@ export function Gallery() {
             variant="scale"
             className="md:col-span-2 md:min-h-[220px]"
           >
-            <div className="glass-strong group relative flex h-full flex-col justify-between overflow-x-clip p-5 sm:p-7 md:p-8">
+            <div className="glass-strong spotlight group relative flex h-full flex-col justify-between overflow-x-clip p-5 sm:p-7 md:p-8">
               <div>
                 <p className="font-display text-[11px] uppercase tracking-[0.22em] text-ridge-muted">
                   Ready when you are

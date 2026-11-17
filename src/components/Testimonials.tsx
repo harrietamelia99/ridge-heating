@@ -85,7 +85,7 @@ export function Testimonials() {
               delay={i * 70}
               className="h-full"
             >
-              <article className="glass-light-strong group flex h-full flex-col p-5 sm:p-6 md:p-7">
+              <article className="glass-light-strong spotlight spotlight-light group flex h-full flex-col p-5 sm:p-6 md:p-7">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <Stars />
                   <p className="font-display text-[10px] uppercase tracking-[0.16em] text-ridge-ink-muted">

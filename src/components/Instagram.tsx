@@ -68,7 +68,7 @@ export function Instagram() {
                 href="https://www.instagram.com/ridge.heating/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block aspect-square overflow-hidden border border-white/10 transition duration-300 hover:-translate-y-1 hover:border-white/30"
+                className="img-wipe group relative block aspect-square overflow-hidden border border-white/10 transition duration-300 hover:-translate-y-1 hover:border-white/30"
               >
                 <Image
                   src={post.image}

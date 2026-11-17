@@ -60,7 +60,7 @@ export function WhyUs() {
                 as="li"
                 delay={i * 90}
                 variant="right"
-                className="glass-strong grid gap-3 p-4 sm:grid-cols-[140px_1fr] sm:gap-10 sm:p-6 md:p-8"
+                className="glass-strong spotlight grid gap-3 p-4 sm:grid-cols-[140px_1fr] sm:gap-10 sm:p-6 md:p-8"
               >
                 <div>
                   <p className="text-gradient font-display text-3xl font-bold tracking-tight">

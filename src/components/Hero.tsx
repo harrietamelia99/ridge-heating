@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MountainLogo } from "./BrandMark";
+import { Parallax } from "./Parallax";
 
 const heroImage = {
   src: "/hero-engineer-boiler.png",
@@ -25,7 +26,7 @@ export function Hero() {
           alt={heroImage.alt}
           fill
           priority
-          className="object-cover object-[78%_38%] opacity-[0.72]"
+          className="hero-zoom object-cover object-[78%_38%] opacity-[0.72]"
           sizes="100vw"
         />
         {/* Soften under the nav */}
@@ -43,14 +44,18 @@ export function Hero() {
       {/* Desktop: bleed off the right edge, stay inside the hero */}
       <div className="absolute inset-y-0 right-0 z-0 hidden w-[min(64vw,960px)] overflow-hidden lg:block">
         <div className="hero-media relative h-full w-full">
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            fill
-            priority
-            className="object-cover object-[88%_18%] opacity-[0.78]"
-            sizes="64vw"
-          />
+          <Parallax strength={90} className="absolute inset-x-0 -bottom-[10%] -top-[4%]">
+            <div className="hero-zoom relative h-full w-full">
+              <Image
+                src={heroImage.src}
+                alt={heroImage.alt}
+                fill
+                priority
+                className="object-cover object-[88%_18%] opacity-[0.78]"
+                sizes="64vw"
+              />
+            </div>
+          </Parallax>
           <div className="hero-media-fade absolute inset-0" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" />
           <div

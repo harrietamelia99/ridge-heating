@@ -63,8 +63,8 @@ export function Services() {
         <ul className="mt-10 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-4 md:mt-16 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} as="li" delay={i * 80} className="h-full">
-              <div className="service-card-light group h-full overflow-x-clip">
-                <div className="relative h-40 overflow-hidden sm:h-48">
+              <div className="service-card-light spotlight spotlight-light group h-full overflow-x-clip">
+                <div className="img-wipe relative h-40 overflow-hidden sm:h-48">
                   <Image
                     src={service.image}
                     alt={service.imageAlt}

@@ -91,10 +91,8 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-2 font-display text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
-                    isActive
-                      ? "text-ridge-white underline decoration-white decoration-1 underline-offset-[6px]"
-                      : "text-ridge-white/65 hover:text-ridge-white"
+                  className={`nav-link px-3.5 py-2 font-display text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-300 ${
+                    isActive ? "is-active text-ridge-white" : "text-ridge-white/65 hover:text-ridge-white"
                   }`}
                 >
                   {link.label}

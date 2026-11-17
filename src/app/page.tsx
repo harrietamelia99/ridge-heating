@@ -11,13 +11,17 @@ import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { SectionDivider } from "@/components/SectionDivider";
+import { ScrollEffects } from "@/components/ScrollEffects";
+import { Ticker } from "@/components/Ticker";
 
 export default function Home() {
   return (
     <>
+      <ScrollEffects />
       <Navbar />
       <main>
         <Hero />
+        <Ticker />
         <SectionDivider from="#000000" to="#ffffff" flip />
         <Services />
         <SectionDivider from="#ffffff" to="#000000" />
